@@ -10,12 +10,6 @@ In your Python AppEngine Project execute the following command:
 ```
 git submodule add https://github.com/AirConsole/letsencrypt
 ```
-Note: If you need to [remove the submodule](http://stackoverflow.com/a/21211232/412329) do this:
-
-```
-git rm letsencrypt
-rm -rf .git/modules/letsencrypt
-```
 
 Then add the following to your `app.yaml`:
 ```
@@ -26,6 +20,15 @@ handlers:
 Upload your app to Google AppEngine.
 
 ## Create or renew a SSL certificate
-- Go to `http://www.yourdomain.com/.well-known/acme-challenge/` and login as an administrator
-- Execute the displayed command in a shell that supports curl and openssl ([Google Cloud Shell](https://cloud.google.com/shell/docs/quickstart) can be used)
-- Upload the obtained certificates on https://console.cloud.google.com/appengine/settings/certificates
+1. Go to `http://www.yourdomain.com/.well-known/acme-challenge/` and login as an administrator
+2. Execute the displayed command in a shell that supports curl and openssl ([Google Cloud Shell](https://cloud.google.com/shell/docs/quickstart) can be used)
+3. Upload the obtained certificates on <https://console.cloud.google.com/appengine/settings/certificates>
+
+## Miscellaneous
+
+If you need to [remove the letsencrypt submodule](http://stackoverflow.com/a/21211232/412329), do this:
+
+```
+git rm letsencrypt
+rm -rf .git/modules/letsencrypt
+```
